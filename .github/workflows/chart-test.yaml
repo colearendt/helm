@@ -41,6 +41,11 @@ jobs:
       - name: Run chart-testing (lint)
         run: ct lint
 
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v1
+        #with:
+        #  version: '<version>' # default is latest stable
+        id: install
       - name: Create k3d cluster
         uses: rinx/setup-k3d@v0.0.2
         if: steps.list-changed.outputs.changed == 'true'
