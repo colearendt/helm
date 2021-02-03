@@ -3,8 +3,10 @@ config:
   default-provider: oidc
   providers.oidc.issuer-url: http://some-url.example.com
   providers.oidc.client-id: auth
+  providers.oidc.client-secret: super-secret
   insecure-cookie: false
   auth-host: host.name
+  secret: another-secret
 
 strategy: {}
 replicas: 1
