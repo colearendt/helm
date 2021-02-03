@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- if .Values.strategy }}
+  strategy:
+{{ toYaml .Values.strategy | indent 10 }}
+  {{- end }}
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+{{ include "traefik-forward-auth.pod.annotations" . | indent 8 }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: proxy
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        {{- if .Values.pod.env }}
+{{ toYaml .Values.pod.env | indent 8 }}
+        {{- end }}
+        {{- if .Values.command }}
+        command:
+{{ toYaml .Values.command | indent 10 }}
+        {{- end }}
+        {{- if .Values.args }}
+        args: 
+{{ toYaml .Values.args | indent 10 }}
+        {{- end }}
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+        ports:
+        - containerPort: 4181
+        volumeMounts:
+          - name: config
+            mountPath: "/config"
+        {{- if .Values.resources }}
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+        {{- end }}
+        {{- if .Values.livenessProbe }}
+        livenessProbe:
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        {{- end }}
+        {{- if .Values.startupProbe }}
+        startupProbe:
+{{ toYaml .Values.startupProbe | indent 10 }}
+        {{- end }}
+        {{- if .Values.readinessProbe }}
+        readinessProbe:
+{{ toYaml .Values.readinessProbe | indent 10 }}
+        {{- end }}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ .Release.Name }}-config
+          items:
+          - key: config.ini
+            path: "config.ini"
+---

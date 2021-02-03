@@ -1,0 +1,10 @@
+name: traefik-forward-auth
+description: Deploy traefik-forward-auth
+version: 0.0.2
+apiVersion: v1
+sources:
+  - https://github.com/thomseddon/traefik-forward-auth
+maintainers:
+  - name: sol-eng
+    email: docker@rstudio.com
+    url: https://github.com/sol-eng
