@@ -1,0 +1,28 @@
+config:
+  log-level: warn
+  default-provider: oidc
+  providers.oidc.issuer-url: http://some-url.example.com
+  providers.oidc.client-id: auth
+  insecure-cookie: false
+  auth-host: host.name
+
+strategy: {}
+replicas: 1
+podAnnotations: {}
+serviceAnnotations: {}
+
+image:
+  repository: thomseddon/traefik-forward-auth
+  tag: 2
+  pullPolicy: IfNotPresent
+
+pod:
+  env: {}
+command:
+  - './traefik-forward-auth'
+args:
+  - '--config=/config/config.ini'
+resources: {}
+livenessProbe: {}
+startupProbe: {}
+readinessProbe: {}
