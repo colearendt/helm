@@ -34,7 +34,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{- if .Values.postgrest.dbUir }}
+            {{- if .Values.postgrest.dbUri }}
             - name: PGRST_DB_URI
               value: {{ .Values.postgrest.dbUri }}
             {{- end }}
@@ -52,7 +52,7 @@ spec:
             {{- end }}
             {{- if .Values.postgrest.dbPoolTimeout }}
             - name: PGRST_DB_POOL_TIMEOUT
-              value: {{ .Values.postgrest.dbPoolTimeout }}
+              value: {{ .Values.postgrest.dbPoolTimeout | quote }}
             {{- end }}
             {{- if .Values.postgrest.dbExtraSearchPath }}
             - name: PGRST_DB_EXTRA_SEARCH_PATH
@@ -72,7 +72,7 @@ spec:
             {{- end }}
             {{- if .Values.postgrest.serverPort }}
             - name: PGRST_SERVER_PORT
-              value: {{ .Values.postgrest.serverPort }}
+              value: {{ .Values.postgrest.serverPort | quote }}
             {{- end }}
             {{- if .Values.postgrest.openApiServerProxyUri }}
             - name: PGRST_OPENAPI_SERVER_PROXY_URI
@@ -114,10 +114,6 @@ spec:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
           readinessProbe:
             httpGet:
               path: /
