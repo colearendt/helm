@@ -59,7 +59,7 @@ spec:
               value: {{ .Values.postgrest.dbExtraSearchPath }}
             {{- end }}
             {{- if .Values.postgrest.dbChannel }}
-            - name: PGRST_DB_CHANNEEL
+            - name: PGRST_DB_CHANNEL
               value: {{ .Values.postgrest.dbChannel }}
             {{- end }}
             {{- if .Values.postgrest.dbChannelEnabled }}
