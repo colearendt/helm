@@ -3,9 +3,9 @@ name: generic
 description: A generic Helm chart for Kubernetes
 
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: latest
 maintainers:
   - name: colearendt
-    email: packages@arendt.life
+    email: helm@arendt.life
     url: https://github.com/colearendt
