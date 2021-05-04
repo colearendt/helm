@@ -3,6 +3,20 @@ entries:
   generic:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-05-04T13:23:23.026433006Z"
+    description: A generic Helm chart for Kubernetes
+    digest: 87bfd5abbc551f763528aed189f635861ee7a5b93243a9745bdd0bb14729ffdf
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: generic
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/generic-0.1.1/generic-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-15T09:39:32.83914107Z"
     description: A generic Helm chart for Kubernetes
     digest: ef48a9f271e5b659a43a333938cbbcda3de2d4db008451001695c3cd2ed10016
@@ -31,6 +45,20 @@ entries:
     - https://github.com/colearendt/helm/releases/download/postgrest-0.1.0/postgrest-0.1.0.tgz
     version: 0.1.0
   traefik-forward-auth:
+  - apiVersion: v1
+    created: "2021-05-04T13:23:23.165010652Z"
+    description: Deploy traefik-forward-auth
+    digest: ea579f287dd3c79d2c74030cdd0f2e51a9d16c4102c94d8d74d4c0b6a7e030d4
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: traefik-forward-auth
+    sources:
+    - https://github.com/thomseddon/traefik-forward-auth
+    urls:
+    - https://github.com/colearendt/helm/releases/download/traefik-forward-auth-0.0.4/traefik-forward-auth-0.0.4.tgz
+    version: 0.0.4
   - apiVersion: v1
     created: "2021-02-03T11:46:27.884573276Z"
     description: Deploy traefik-forward-auth
