@@ -15,6 +15,21 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/generic-0.1.0/generic-0.1.0.tgz
     version: 0.1.0
+  postgrest:
+  - apiVersion: v2
+    appVersion: v7.0.1
+    created: "2021-05-04T10:34:27.226789022Z"
+    description: A Helm chart for deploying Postgrest to Kubernetes
+    digest: b044e732ba390e705a83b27620b955a3071c2b9f4e57b6b93f08b0ae421594ef
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: postgrest
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/postgrest-0.1.0/postgrest-0.1.0.tgz
+    version: 0.1.0
   traefik-forward-auth:
   - apiVersion: v1
     created: "2021-02-03T11:46:27.884573276Z"
