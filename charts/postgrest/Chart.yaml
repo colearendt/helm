@@ -21,3 +21,8 @@ version: 0.1.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: v7.0.1
+
+maintainers:
+  - name: colearendt
+    email: helm@arendt.life
+    url: https://github.com/colearendt
