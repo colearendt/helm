@@ -12,7 +12,9 @@ fullnameOverride: ""
 
 pod:
   port: 80
-  env: []
+  env:
+    - name: "TEST_ENV"
+      value: "SOME_VALUE"
 
 serviceAccount:
   # -- Specifies whether a service account should be created
