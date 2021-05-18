@@ -1,0 +1,3 @@
+[submodule "charts/matomo"]
+	path = charts/matomo
+	url = git@github.com:colearendt/matomo-chart.git
