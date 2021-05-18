@@ -26,6 +26,10 @@ jobs:
         with:
           version: v3.4.0
 
+      - name: Set up helm repos
+        run: |
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+
       - uses: actions/setup-python@v2
         with:
           python-version: 3.7
