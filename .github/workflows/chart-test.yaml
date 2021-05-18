@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - master
+      - main
   pull_request:
     branches:
       - master
+      - main
 
 jobs:
   lint-test:
@@ -40,6 +42,9 @@ jobs:
 
       - name: Run chart-testing (lint)
         run: ct lint
+
+      - name: Run chart-testing (lint --all)
+        run: ct lint --all
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.1.0
