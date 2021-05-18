@@ -58,6 +58,28 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/generic-0.1.0/generic-0.1.0.tgz
     version: 0.1.0
+  matomo:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-05-18T11:13:43.655162729Z"
+    dependencies:
+    - condition: mariadb.deployChart
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.3.0
+    description: Matomo helm chart
+    digest: 4e6890ce133fa8c2015509909907451253fab8d13cfada88ca1a8d716ce2e647
+    icon: https://bitnami.com/assets/stacks/matomo/img/matomo-stack-110x117.png
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: matomo
+    sources:
+    - https://github.com/bitnami/charts/blob/master/bitnami/mariadb/README.md
+    urls:
+    - https://github.com/colearendt/helm/releases/download/matomo-1.0.0-alpha2/matomo-1.0.0-alpha2.tgz
+    version: 1.0.0-alpha2
   postgrest:
   - apiVersion: v2
     appVersion: v7.0.1
