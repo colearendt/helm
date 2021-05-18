@@ -1,5 +1,20 @@
 apiVersion: v1
 entries:
+  example:
+  - apiVersion: v2
+    appVersion: 1.16.1
+    created: "2021-05-18T10:52:33.988739331Z"
+    description: A Helm chart for Kubernetes
+    digest: 2ebc448c66e3d335d8aac4e3bccdd44c70b924d50f4e07a1d79c9de6cdde43f8
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: example
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/example-0.1.1/example-0.1.1.tgz
+    version: 0.1.1
   generic:
   - apiVersion: v2
     appVersion: latest
