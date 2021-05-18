@@ -25,4 +25,4 @@ appVersion: 1.16.1
 maintainers:
   - name: colearendt
     email: helm@arendt.life
-    url: http://colearendt.com
+    url: https://github.com/colearendt
