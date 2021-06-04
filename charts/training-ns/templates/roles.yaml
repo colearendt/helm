@@ -1,0 +1,45 @@
+{{ $ctx := $ }}
+{{- range $user := .Values.users }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: training-{{ $user }}
+  namespace: training-{{ $user }}
+rules:
+  {{- toYaml $.Values.namespacePrivileges | nindent 2 }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: training-{{ $user }}
+  namespace: training-{{ $user }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: training-{{ $user }}
+subjects:
+  - kind: ServiceAccount
+    name: training-{{ $user }}
+    namespace: training-{{ $user }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: training-{{ $user }}
+rules:
+  {{- toYaml $.Values.clusterPrivileges | nindent 2 }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: training-{{ $user }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: training-{{ $user }}
+subjects:
+  - kind: ServiceAccount
+    name: training-{{ $user }}
+    namespace: training-{{ $user }}
+{{- end }}

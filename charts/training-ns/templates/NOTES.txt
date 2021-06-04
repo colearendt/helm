@@ -1,0 +1,5 @@
+{{- range $user := .Values.users }}
+---
+ - user: training-{{ $user }}
+ - ns: training-{{ $user }}
+{{- end }}
