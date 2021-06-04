@@ -1,0 +1,8 @@
+{{ $ctx := $ }}
+{{- range $user := .Values.users }}
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: training-{{ $user }}
+{{- end }}
