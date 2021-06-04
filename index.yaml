@@ -145,4 +145,19 @@ entries:
     urls:
     - https://github.com/colearendt/helm-charts/releases/download/traefik-forward-auth-0.0.3/traefik-forward-auth-0.0.3.tgz
     version: 0.0.3
+  training-ns:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2021-06-04T02:21:17.514246256Z"
+    description: A Helm chart to help train users on Kubernetes
+    digest: 7834b065f9a13f056ba4c93fbdc331db392fe86dedfad7faaed7aa8c68c60bd6
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: training-ns
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
+    version: 0.0.1
 generated: "2021-02-03T11:46:27.529491548Z"
