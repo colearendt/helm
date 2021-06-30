@@ -7,6 +7,8 @@ config:
   insecure-cookie: false
   auth-host: host.name
   secret: another-secret
+  rule.1.action: allow
+  rule.1.rule: "Host(`test.example.com`) && Header(`test`, `value`)"
 
 strategy: {}
 replicas: 1
