@@ -51,6 +51,8 @@ postgrest:
   rootSpec: ""
   rawMediaTypes: ""
 
+secret: null
+
 securityContext: {}
   # capabilities:
   #   drop:
