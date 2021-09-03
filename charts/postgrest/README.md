@@ -60,7 +60,7 @@ A Helm chart for deploying Postgrest to Kubernetes
 | postgrest.serverPort | string | `"9000"` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
-| secret | string | `nil` |  |
+| secret | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
