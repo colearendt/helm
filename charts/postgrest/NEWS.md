@@ -1,3 +1,8 @@
+# 0.1.2
+
+- Make replicas automatically restart when secret changes
+- Add liveness and readiness probes
+
 # 0.1.1
 
 - Make readiness probe configurable
