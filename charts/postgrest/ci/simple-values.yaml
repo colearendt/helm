@@ -1,0 +1,7 @@
+postgrest:
+  dbUri: some-secret
+  jwtSecret: another-secret
+pod:
+  env:
+    - name: TEST
+      value: TEST

@@ -31,12 +31,13 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          {{- $defaultVersion := .Values.versionOverride | default $.Chart.AppVersion }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default $defaultVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             {{- if .Values.postgrest.dbUri }}
             - name: PGRST_DB_URI
-              value: {{ .Values.postgrest.dbUri }}
+              value: "@/mnt/secret/db-uri.txt"
             {{- end }}
             {{- if .Values.postgrest.dbSchema }}
             - name: PGRST_DB_SCHEMA
@@ -80,7 +81,7 @@ spec:
             {{- end }}
             {{- if .Values.postgrest.jwtSecret }}
             - name: PGRST_JWT_SECRET
-              value: {{ .Values.postgrest.jwtSecret }}
+              value: "@/mnt/secret/jwt-secret.txt"
             {{- end }}
             {{- if .Values.postgrest.secretIsBase64 }}
             - name: PGRST_SECRET_IS_BASE64
@@ -110,16 +111,30 @@ spec:
             - name: PGRST_RAW_MEDIA_TYPES
               value: {{ .Values.postgrest.rawMediaTypes }}
             {{- end }}
+            {{- if .Values.pod.env }}
+              {{- toYaml .Values.pod.env | nindent 12 }}
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.pod.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: "/mnt/secret"
+              name: secret-mount
+          {{- if .Values.pod.volumeMounts }}
+            {{ toYaml .Values.pod.volumeMounts | indent 12 }}
+          {{- end }}
+      volumes:
+        - name: secret-mount
+          secret:
+            secretName: {{ include "postgrest.fullname" . }}-secret
+        {{- if .Values.pod.volumes }}
+          {{- toYaml .Values.pod.volumes | nindent 8 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
