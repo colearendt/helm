@@ -68,6 +68,10 @@ pod:
     httpGet:
       path: /
       port: http
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  livenessProbe: {}
+  startupProbe: {}
   volumes: []
   volumeMounts: []
 
