@@ -40,7 +40,7 @@ postgrest:
   dbChannel: ""
   dbChannelEnabled: ""
   serverHost: ""
-  serverPort: "80"
+  serverPort: "9000"
   openApiServerProxyUri: ""
   jwtSecret: ""
   secretIsBase64: ""
@@ -60,7 +60,12 @@ securityContext: {}
   # runAsUser: 1000
 
 pod:
-  containerPort: 80
+  containerPort: 9000
+  env: []
+  readinessProbe:
+    httpGet:
+      path: /
+      port: http
 
 service:
   type: ClusterIP

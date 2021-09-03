@@ -111,14 +111,17 @@ spec:
             - name: PGRST_RAW_MEDIA_TYPES
               value: {{ .Values.postgrest.rawMediaTypes }}
             {{- end }}
+            {{- if .Values.pod.env }}
+              {{- toYaml .Values.pod.env | nindent 12 }}
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
+          {{- if .Values.pod.readinessProbe }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.pod.readinessProbe | nindent 12 }}
+          {{- end}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
