@@ -118,12 +118,23 @@ spec:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
-          {{- if .Values.pod.readinessProbe }}
           readinessProbe:
             {{- toYaml .Values.pod.readinessProbe | nindent 12 }}
-          {{- end}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: "/mnt/secret"
+              name: secret-mount
+          {{- if .Values.pod.volumeMounts }}
+            {{ toYaml .Values.pod.volumeMounts | indent 12 }}
+          {{- end }}
+      volumes:
+        - name: secret-mount
+          secret:
+            secretName: {{ include "postgrest.fullname" . }}-secret
+        {{- if .Values.pod.volumes }}
+          {{- toYaml .Values.pod.volumes | nindent 8 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

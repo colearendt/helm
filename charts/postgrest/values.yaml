@@ -68,6 +68,8 @@ pod:
     httpGet:
       path: /
       port: http
+  volumes: []
+  volumeMounts: []
 
 service:
   type: ClusterIP
