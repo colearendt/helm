@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+versionOverride: ""
+
 image:
   repository: postgrest/postgrest
   pullPolicy: IfNotPresent
