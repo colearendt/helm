@@ -13,6 +13,7 @@ image:
   tag: ""
 
 imagePullSecrets: []
+
 nameOverride: ""
 fullnameOverride: ""
 
@@ -25,10 +26,16 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-podAnnotations: {}
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: "25%"
+    maxSurge: "25%"
 
-podSecurityContext: {}
-  # fsGroup: 2000
+initContainers: {}
+
+command: []
+args: []
 
 postgrest:
   dbUri: ""
@@ -62,14 +69,20 @@ securityContext: {}
   # runAsUser: 1000
 
 pod:
+  annotations: {}
   containerPort: 9000
   env: []
   readinessProbe:
     httpGet:
       path: /
       port: http
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  livenessProbe: {}
+  startupProbe: {}
   volumes: []
   volumeMounts: []
+  securityContext: {}
 
 service:
   type: ClusterIP
