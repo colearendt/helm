@@ -1,5 +1,7 @@
-# 0.1.2
+# 0.2.0
 
+- BREAKING: move `podAnnotations` and `podSecurityContext` to `pod.annotations` and `pod.securityContext`
+- Add `strategy`, `initContainer`, `command`, and `args` values  
 - Make replicas automatically restart when secret changes
 - Add liveness and readiness probes
 
