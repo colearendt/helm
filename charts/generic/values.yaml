@@ -22,6 +22,11 @@ pod:
   securityContext: {}
     # fsGroup: 2000
 
+# -- command for the pod's primary container. Default is the container's default entrypoint
+command: []
+# -- args for the pod's primary container. Default is the container's default "command"
+args: []
+
 storage:
   name: ''
   create: false
