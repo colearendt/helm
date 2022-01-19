@@ -1,0 +1,22 @@
+{{- if .Values.storage.create }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{default (print (include "generic.fullname" .) "-storage" ) .Values.storage.name }}
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  accessModes:
+    {{- .Values.storage.accessModes | toYaml | nindent 4 }}
+  volumeMode: Filesystem
+  {{- if .Values.storage.storageClassName }}
+  storageClassName: {{ .Values.storage.storageClassName }}
+  {{- end }}
+  resources:
+  {{- with .Values.storage.requests }}
+    requests:
+      {{- . | toYaml | nindent 6 }}
+  {{- end }}
+---
+{{- end }}

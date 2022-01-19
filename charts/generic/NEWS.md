@@ -1,3 +1,8 @@
+# 0.1.3
+
+- Add `storage` values for setting a PersistentVolumeClaim
+  - It is best when we do not need to use this, but alas, it is often necessary
+
 # 0.1.2
 
 - Add `pod.env` values for setting pod environment variables
