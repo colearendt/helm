@@ -79,3 +79,18 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+extraObjects:
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: "awesome"
+    data:
+      config: data
+  - |
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: "templating"
+    data:
+      something: {{ printf "special" }}
