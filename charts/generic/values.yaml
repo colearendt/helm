@@ -90,10 +90,13 @@ affinity: {}
 # -- Extra kubernetes objects to deploy (value evaluted as a template)
 extraObjects: []
 
+# -- customize the primary container's readinessProbe. Default is httpGet on the default `http` port
 readinessProbe:
   httpGet:
     path: /
     port: http
 
+# -- customize the primary container's livenessProbe. Default none
 livenessProbe: {}
+# -- customize the primary container's startupProbe. Default none
 startupProbe: {}

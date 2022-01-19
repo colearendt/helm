@@ -30,15 +30,14 @@ A generic Helm chart for Kubernetes
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
-| livenessProbe | object | `{}` |  |
+| livenessProbe | object | `{}` | customize the primary container's livenessProbe. Default none |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | pod.env | list | `[]` |  |
 | pod.port | int | `80` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| readinessProbe.httpGet.path | string | `"/"` |  |
-| readinessProbe.httpGet.port | string | `"http"` |  |
+| readinessProbe | object | `{"httpGet":{"path":"/","port":"http"}}` | customize the primary container's readinessProbe. Default is httpGet on the default `http` port |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
@@ -47,7 +46,7 @@ A generic Helm chart for Kubernetes
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. -- If not set and create is true, a name is generated using the fullname template |
-| startupProbe | object | `{}` |  |
+| startupProbe | object | `{}` | customize the primary container's startupProbe. Default none |
 | storage.accessModes[0] | string | `"ReadWriteOnce"` |  |
 | storage.create | bool | `false` |  |
 | storage.name | string | `""` |  |
