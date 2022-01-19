@@ -13,6 +13,14 @@ fullnameOverride: ""
 pod:
   port: 80
   env: []
+  volumes: []
+  volumeMounts: []
+  # -- Additional annotations to add to the pods
+  annotations: {}
+  # -- Additional labels to add to the pods
+  labels: {}
+  securityContext: {}
+    # fsGroup: 2000
 
 storage:
   name: ''
@@ -22,6 +30,7 @@ storage:
   storageClassName: ''
   requests:
     storage: 6Gi
+  mountPath: /mnt/storage
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -31,11 +40,6 @@ serviceAccount:
   # -- The name of the service account to use.
   # -- If not set and create is true, a name is generated using the fullname template
   name: ""
-
-podAnnotations: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
 
 securityContext: {}
   # capabilities:
