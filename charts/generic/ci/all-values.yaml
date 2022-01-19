@@ -94,3 +94,13 @@ extraObjects:
       name: "templating"
     data:
       something: {{ printf "special" }}
+
+readinessProbe: null
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+startupProbe:
+  httpGet:
+    path: /
+    port: http
