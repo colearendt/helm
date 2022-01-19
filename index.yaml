@@ -18,6 +18,20 @@ entries:
   generic:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-01-19T03:27:45.914246988Z"
+    description: A generic Helm chart for Kubernetes
+    digest: d73d2245d741800476055a342a6ba6fd042e12d95c331deab39beef9059b7032
+    maintainers:
+    - email: helm@arendt.life
+      name: colearendt
+      url: https://github.com/colearendt
+    name: generic
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/generic-0.1.3/generic-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-05-13T09:32:38.666160879Z"
     description: A generic Helm chart for Kubernetes
     digest: 367f4037c5a4cd1b7eee58a697c6d46d41d8bdfe261958829ca78f5892177219
@@ -225,4 +239,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-13T19:49:17.020787344Z"
+generated: "2022-01-19T03:27:45.914283388Z"
