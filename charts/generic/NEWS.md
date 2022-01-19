@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Add customization for `command` and `args`
+
 # 0.2.0
 
 - BREAKING: move `podAnnotations` into `pod.annotations`

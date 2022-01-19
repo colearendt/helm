@@ -23,6 +23,12 @@ pod:
   securityContext: {}
     # fsGroup: 2000
 
+command:
+  - "sh"
+  - "-c"
+args:
+  - "'echo hi'"
+
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: true
