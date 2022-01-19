@@ -89,3 +89,11 @@ affinity: {}
 
 # -- Extra kubernetes objects to deploy (value evaluted as a template)
 extraObjects: []
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+livenessProbe: {}
+startupProbe: {}
