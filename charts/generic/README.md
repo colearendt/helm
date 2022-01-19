@@ -1,6 +1,6 @@
 # generic
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 A generic Helm chart for Kubernetes
 
@@ -33,10 +33,13 @@ A generic Helm chart for Kubernetes
 | livenessProbe | object | `{}` | customize the primary container's livenessProbe. Default none |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| pod.annotations | object | `{}` | Additional annotations to add to the pods |
 | pod.env | list | `[]` |  |
+| pod.labels | object | `{}` | Additional labels to add to the pods |
 | pod.port | int | `80` |  |
-| podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
+| pod.securityContext | object | `{}` |  |
+| pod.volumeMounts | list | `[]` |  |
+| pod.volumes | list | `[]` |  |
 | readinessProbe | object | `{"httpGet":{"path":"/","port":"http"}}` | customize the primary container's readinessProbe. Default is httpGet on the default `http` port |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
@@ -49,6 +52,7 @@ A generic Helm chart for Kubernetes
 | startupProbe | object | `{}` | customize the primary container's startupProbe. Default none |
 | storage.accessModes[0] | string | `"ReadWriteOnce"` |  |
 | storage.create | bool | `false` |  |
+| storage.mountPath | string | `"/mnt/storage"` |  |
 | storage.name | string | `""` |  |
 | storage.requests.storage | string | `"6Gi"` |  |
 | storage.storageClassName | string | `""` |  |

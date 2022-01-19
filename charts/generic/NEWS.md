@@ -1,3 +1,12 @@
+# 0.2.0
+
+- BREAKING: move `podAnnotations` into `pod.annotations`
+- BREAKING: move `podSecurityContext` into `pod.securityContext`
+- Add proper mounting for `storage` (fixes a shortcoming in 0.1.3+)
+  - Add `storage.mountPath` value for customizing the mount path. Defaults to `/mnt/storage`
+- Add values for arbitrary `pod.volumes` and `pod.volumeMounts`
+- Add values for `pod.labels`
+
 # 0.1.5
 
 - Add values for `readinessProbe`, `livenessProbe` and `startupProbe`
