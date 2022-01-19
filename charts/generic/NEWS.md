@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Add `extraObjects` for arbitrary deployment possibilities!
+
 # 0.1.3
 
 - Add `storage` values for setting a PersistentVolumeClaim
