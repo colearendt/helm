@@ -1,3 +1,9 @@
+# 0.1.5
+
+- Add values for `readinessProbe`, `livenessProbe` and `startupProbe`
+  - This allows customization of probes
+  - Previously, `readinessProbe` was hardcoded
+
 # 0.1.4
 
 - Add `extraObjects` for arbitrary deployment possibilities!
