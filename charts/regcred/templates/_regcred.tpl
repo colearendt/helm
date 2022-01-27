@@ -5,15 +5,15 @@
       username
       password
 */ -}}
-{{- define "ghcr.b64Base" -}}
+{{- define "regcred.b64Base" -}}
   {{- printf "%s:%s" .username .password | b64enc }}
 {{- end }}
 
-{{- define "ghcr.jsonBase" -}}
+{{- define "regcred.jsonBase" -}}
   {{- printf "{\"auths\":{\"ghcr.io\":{\"auth\": \"%s\"}}}" . | b64enc }}
 {{- end }}
 
-{{- define "ghcr.authSecret" -}}
-    {{- $secret := include "ghcr.b64Base" . -}}
-    {{- include "ghcr.jsonBase" $secret }}
+{{- define "regcred.authSecret" -}}
+    {{- $secret := include "regcred.b64Base" . -}}
+    {{- include "regcred.jsonBase" $secret }}
 {{- end }}
