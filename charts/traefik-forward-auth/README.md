@@ -1,18 +1,17 @@
 # traefik-forward-auth
 
-![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square)
+![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square)
 
-Deploy traefik-forward-auth
+## Installing the Chart
 
-## Maintainers
+To install the chart with the release name `my-release` at version 0.0.6:
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| colearendt | helm@arendt.life | https://github.com/colearendt |
+```bash
+helm repo add colearendt https://colearendt.github.io/helm
+helm install my-release colearendt/traefik-forward-auth --version=0.0.6
+```
 
-## Source Code
-
-* <https://github.com/thomseddon/traefik-forward-auth>
+#### _Deploy traefik-forward-auth_
 
 ## Values
 

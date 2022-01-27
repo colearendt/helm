@@ -1,24 +1,29 @@
 # postgrest
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v8.0.0](https://img.shields.io/badge/AppVersion-v8.0.0-informational?style=flat-square)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v8.0.0](https://img.shields.io/badge/AppVersion-v8.0.0-informational?style=flat-square)
 
-A Helm chart for deploying Postgrest to Kubernetes
+## Installing the Chart
 
-## Maintainers
+To install the chart with the release name `my-release` at version 0.2.1:
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| colearendt | helm@arendt.life | https://github.com/colearendt |
+```bash
+helm repo add colearendt https://colearendt.github.io/helm
+helm install my-release colearendt/postgrest --version=0.2.1
+```
+
+#### _A Helm chart for deploying Postgrest to Kubernetes_
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| args | list | `[]` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| command | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"postgrest/postgrest"` |  |
@@ -29,8 +34,10 @@ A Helm chart for deploying Postgrest to Kubernetes
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
+| initContainers | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| pod.annotations | object | `{}` |  |
 | pod.containerPort | int | `9000` |  |
 | pod.env | list | `[]` |  |
 | pod.livenessProbe | object | `{}` |  |
@@ -38,11 +45,10 @@ A Helm chart for deploying Postgrest to Kubernetes
 | pod.readinessProbe.httpGet.port | string | `"http"` |  |
 | pod.readinessProbe.initialDelaySeconds | int | `5` |  |
 | pod.readinessProbe.periodSeconds | int | `5` |  |
+| pod.securityContext | object | `{}` |  |
 | pod.startupProbe | object | `{}` |  |
 | pod.volumeMounts | list | `[]` |  |
 | pod.volumes | list | `[]` |  |
-| podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
 | postgrest.dbAnonRole | string | `""` |  |
 | postgrest.dbChannel | string | `""` |  |
 | postgrest.dbChannelEnabled | string | `""` |  |
@@ -71,6 +77,9 @@ A Helm chart for deploying Postgrest to Kubernetes
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| strategy.rollingUpdate.maxSurge | string | `"25%"` |  |
+| strategy.rollingUpdate.maxUnavailable | string | `"25%"` |  |
+| strategy.type | string | `"RollingUpdate"` |  |
 | tolerations | list | `[]` |  |
 | versionOverride | string | `""` |  |
 
