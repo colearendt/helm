@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Update maintainer
+
 # 0.2.0
 
 - BREAKING: move `podAnnotations` and `podSecurityContext` to `pod.annotations` and `pod.securityContext`

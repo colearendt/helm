@@ -1,14 +1,17 @@
 # generic
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-A generic Helm chart for Kubernetes
+## Installing the Chart
 
-## Maintainers
+To install the chart with the release name `my-release` at version 0.2.2:
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| colearendt | helm@arendt.life | https://github.com/colearendt |
+```bash
+helm repo add colearendt https://colearendt.github.io/helm
+helm install my-release colearendt/generic --version=0.2.2
+```
+
+#### _A generic Helm chart for Kubernetes_
 
 ## Values
 

@@ -2,9 +2,9 @@ apiVersion: v2
 name: training-ns
 description: A Helm chart to help train users on Kubernetes
 type: application
-version: 0.0.1
-appVersion: "0.0.1"
+version: 0.0.2
+appVersion: "0.0.2"
 maintainers:
   - name: colearendt
-    email: helm@arendt.life
+    email: helm@colearendt.com
     url: https://github.com/colearendt

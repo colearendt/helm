@@ -12,3 +12,10 @@ helm install {{- if (regexMatch "[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z\\.0-9]+" .Vers
 ```
 
 {{- end }}
+
+{{- define "colearendt.description" }}
+    {{- print "#### _" }}
+    {{- template "chart.description" . }}_
+    {{- print "" | nindent 0 }}
+    {{- print "" | nindent 0 }}
+{{- end }}
