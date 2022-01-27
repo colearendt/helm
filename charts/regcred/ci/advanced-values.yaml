@@ -1,0 +1,10 @@
+extraLabels:
+  mylabel: fun
+
+registryCredentials:
+  - url: ghcr.io
+    username: 'username'
+    password: 'password'
+  - url: docker.io
+    username: 'other_username'
+    password: 'other_password'

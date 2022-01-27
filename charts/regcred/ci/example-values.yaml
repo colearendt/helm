@@ -1,0 +1,4 @@
+registryCredentials:
+  - url: ghcr.io
+    username: 'username'
+    password: 'password'

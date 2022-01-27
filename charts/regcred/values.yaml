@@ -1,0 +1,12 @@
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+extraLabels: {}
+
+registryCredentials: []
+#   - url: ghcr.io
+#     username: 'username'
+#     password: 'password'
+#
