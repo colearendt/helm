@@ -1,0 +1,39 @@
+{{ template "chart.header" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "colearendt.install" . }}
+
+#### Description
+
+This chart simplifies the creation
+of ["Registry Credentials"](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for
+use authenticating a Kubernetes cluster to a Container Registry for pulling images.
+
+This is very important for (1) private images and (2) DockerHub, because of their unfortunate rate limit.
+
+Each helm deployment only creates a single secret, but that secret can have multiple credentials within it.
+
+Use this chart to automate away the annoying parts of registry credentials.
+
+#### Examples
+
+`ghcr.io`
+```yaml
+registryCredentials:
+  - url: ghcr.io
+    username: 'colearendt'
+    password: 'my-github-pat'
+```
+
+`docker.io` (DockerHub)
+```yaml
+registryCredentials:
+  - url: docker.io
+    username: 'colearendt'
+    password: 'my-password-or-token'
+```
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "helm-docs.versionFooter" . }}

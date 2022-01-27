@@ -1,0 +1,14 @@
+{{- define "colearendt.install" }}
+    {{- $repoName := "colearendt" }}
+    {{- $repoUrl := "https://colearendt.github.io/helm" }}
+
+## Installing the Chart
+
+To install the chart with the release name `my-release` at version {{ template "chart.version" . }}:
+
+```bash
+helm repo add {{ $repoName }} {{ $repoUrl }}
+helm install {{- if (regexMatch "[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z\\.0-9]+" .Version) }} --devel{{ end }} my-release {{ $repoName }}/{{ template "chart.name" . }} --version={{ template "chart.version" . }}
+```
+
+{{- end }}
