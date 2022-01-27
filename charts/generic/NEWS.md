@@ -1,3 +1,7 @@
+# 0.2.2
+
+- Update maintainer
+
 # 0.2.1
 
 - Add customization for `command` and `args`
