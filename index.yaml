@@ -237,6 +237,21 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/postgrest-0.1.0/postgrest-0.1.0.tgz
     version: 0.1.0
+  regcred:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-01-27T10:05:58.933110178Z"
+    description: A Helm chart that deploys registry credential secrets
+    digest: bd61e75457d1a3f28e5be7483c4659c34251ae4fbc89eb96e960fa38ebffc2bf
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: regcred
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/regcred-0.1.0/regcred-0.1.0.tgz
+    version: 0.1.0
   traefik-forward-auth:
   - apiVersion: v1
     created: "2021-06-30T12:51:05.914357018Z"
@@ -295,4 +310,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-19T12:09:59.933711617Z"
+generated: "2022-01-27T10:05:58.933149578Z"
