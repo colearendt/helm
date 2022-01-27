@@ -1,0 +1,8 @@
+# from https://github.com/artifacthub/hub/blob/master/docs/metadata/artifacthub-repo.yml
+repositoryID: f5771a8b-8389-465f-807a-e50f8cdc4682
+owners:
+  - name: colearendt
+    email: helm@colearendt.com
+ignore:
+  - name: example
+  - name: matomo
