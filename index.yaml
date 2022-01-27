@@ -159,6 +159,27 @@ entries:
   matomo:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2022-01-27T10:33:41.643627583Z"
+    dependencies:
+    - condition: mariadb.deployChart
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.3.0
+    description: Matomo helm chart
+    digest: a36ad7bcea8d5d4c7f94a3342c8027d67ff61ec3bed6f7e7d798acd94affcd2e
+    icon: https://bitnami.com/assets/stacks/matomo/img/matomo-stack-110x117.png
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: matomo
+    sources:
+    - https://github.com/bitnami/charts/blob/master/bitnami/mariadb/README.md
+    urls:
+    - https://github.com/colearendt/helm/releases/download/matomo-1.0.0-alpha5/matomo-1.0.0-alpha5.tgz
+    version: 1.0.0-alpha5
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2022-01-13T19:49:17.020585142Z"
     dependencies:
     - condition: mariadb.deployChart
@@ -381,4 +402,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-27T10:18:24.31282696Z"
+generated: "2022-01-27T10:33:41.643821092Z"
