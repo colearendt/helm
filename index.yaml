@@ -3,6 +3,20 @@ entries:
   example:
   - apiVersion: v2
     appVersion: 1.16.1
+    created: "2022-01-27T10:18:23.795870231Z"
+    description: A Helm chart for Kubernetes
+    digest: bcfb5040f2e57466389fecb3d4bfb6ffeac242418b6ce34cbd421d6343bf155e
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: example
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/example-0.1.2/example-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.1
     created: "2021-05-18T10:52:33.988739331Z"
     description: A Helm chart for Kubernetes
     digest: 2ebc448c66e3d335d8aac4e3bccdd44c70b924d50f4e07a1d79c9de6cdde43f8
@@ -16,6 +30,20 @@ entries:
     - https://github.com/colearendt/helm/releases/download/example-0.1.1/example-0.1.1.tgz
     version: 0.1.1
   generic:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-01-27T10:18:23.932697738Z"
+    description: A generic Helm chart for Kubernetes
+    digest: 6cbfb988577eacd21ef50108bbbaefcc5aca2d3e85bc4edbc535d16cb0ff3c48
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: generic
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/generic-0.2.2/generic-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: latest
     created: "2022-01-19T12:09:59.933656612Z"
@@ -195,6 +223,21 @@ entries:
   postgrest:
   - apiVersion: v2
     appVersion: v8.0.0
+    created: "2022-01-27T10:18:24.060687771Z"
+    description: A Helm chart for deploying Postgrest to Kubernetes
+    digest: fe81be8809cff3c1e758be216ce46e7b588df6b68972e72789c457ea04cfb505
+    icon: https://avatars.githubusercontent.com/u/15115011?s=200&v=4
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: postgrest
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/postgrest-0.2.1/postgrest-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: v8.0.0
     created: "2021-09-04T13:48:28.227256006Z"
     description: A Helm chart for deploying Postgrest to Kubernetes
     digest: 43fad9c0979b4f4009cf2122acd5e5e12d5f9c36392db5ed33dd9eca31a23163
@@ -254,6 +297,20 @@ entries:
     version: 0.1.0
   traefik-forward-auth:
   - apiVersion: v1
+    created: "2022-01-27T10:18:24.186366357Z"
+    description: Deploy traefik-forward-auth
+    digest: 1253e80599df02201391f370a8979614041f09cc91508dd70d89bad38ec5c598
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: traefik-forward-auth
+    sources:
+    - https://github.com/thomseddon/traefik-forward-auth
+    urls:
+    - https://github.com/colearendt/helm/releases/download/traefik-forward-auth-0.0.6/traefik-forward-auth-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v1
     created: "2021-06-30T12:51:05.914357018Z"
     description: Deploy traefik-forward-auth
     digest: 7a668d9de2a0df6c47141fab005960940c756000d6545950785f08c1f95c1cb9
@@ -297,6 +354,20 @@ entries:
     version: 0.0.3
   training-ns:
   - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2022-01-27T10:18:24.312708157Z"
+    description: A Helm chart to help train users on Kubernetes
+    digest: 48452f6370fa3c4ae0d76032fdc23bfb3a805bffbcee1f838deabcbf1656f859
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: training-ns
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/training-ns-0.0.2/training-ns-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 0.0.1
     created: "2021-06-04T02:21:17.514246256Z"
     description: A Helm chart to help train users on Kubernetes
@@ -310,4 +381,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-27T10:05:58.933149578Z"
+generated: "2022-01-27T10:18:24.31282696Z"
