@@ -5,15 +5,21 @@
       username
       password
 */ -}}
-{{- define "regcred.b64Base" -}}
+{{- define "regcred.b64Creds" -}}
   {{- printf "%s:%s" .username .password | b64enc }}
 {{- end }}
 
-{{- define "regcred.jsonBase" -}}
-  {{- printf "{\"auths\":{\"ghcr.io\":{\"auth\": \"%s\"}}}" . | b64enc }}
+{{- define "regcred.regCred" -}}
+    {{- $secret := include "regcred.b64Creds" . }}
+    {{- printf "\"%s\":{\"auth\": \"%s\"}" .url ($secret) }}
 {{- end }}
 
-{{- define "regcred.authSecret" -}}
-    {{- $secret := include "regcred.b64Base" . -}}
-    {{- include "regcred.jsonBase" $secret }}
+{{- define "regcred.registryCredentials" -}}
+    {{- $total := "" }}
+    {{- range $rc := . }}
+        {{- $rcTmp := include "regcred.regCred" . }}
+        {{- $total = join "," (list $total $rcTmp) }}
+        {{- $total = trimPrefix "," $total }}
+    {{- end }}
+    {{- printf "{\"auths\":{%s}}" $total | b64enc }}
 {{- end }}
