@@ -5,11 +5,12 @@ metadata:
   labels:
     {{- include "postgrest.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
+  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-{{- end }}
+  {{- end }}
+  strategy:
   {{- with .Values.strategy }}
-    {{- toYaml . | nindent 2 }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
   selector:
     matchLabels:
