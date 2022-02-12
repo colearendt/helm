@@ -1,3 +1,8 @@
+# 0.3.0
+
+- Fix issue with `strategy` being defined at the wrong scope ([#28](https://github.com/colearendt/helm/issues/28))
+    - now the default values should work
+
 # 0.2.1
 
 - Update maintainer
