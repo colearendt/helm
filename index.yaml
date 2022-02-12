@@ -244,6 +244,21 @@ entries:
   postgrest:
   - apiVersion: v2
     appVersion: v8.0.0
+    created: "2022-02-12T01:36:28.551648535Z"
+    description: A Helm chart for deploying Postgrest to Kubernetes
+    digest: 44ca1466b0c2addd64ca3030b19e65c25c251f5c6e1fe7f9e9f495002dd79a7b
+    icon: https://avatars.githubusercontent.com/u/15115011?s=200&v=4
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: postgrest
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/postgrest-0.3.0/postgrest-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: v8.0.0
     created: "2022-01-27T10:18:24.060687771Z"
     description: A Helm chart for deploying Postgrest to Kubernetes
     digest: fe81be8809cff3c1e758be216ce46e7b588df6b68972e72789c457ea04cfb505
@@ -402,4 +417,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-01-27T10:33:41.643821092Z"
+generated: "2022-02-12T01:36:28.551713336Z"
