@@ -1,6 +1,6 @@
 name: traefik-forward-auth
 description: Deploy traefik-forward-auth
-version: 0.0.6
+version: 0.0.7
 apiVersion: v1
 sources:
   - https://github.com/thomseddon/traefik-forward-auth

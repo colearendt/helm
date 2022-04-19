@@ -13,6 +13,9 @@ image:
   tag: 2
   pullPolicy: IfNotPresent
 
+# -- Extra kubernetes objects to deploy (value evaluted as a template)
+extraObjects: []
+
 pod:
   env: {}
 command:
