@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square)
+![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.6:
+To install the chart with the release name `my-release` at version 0.0.7:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.6
+helm install my-release colearendt/traefik-forward-auth --version=0.0.7
 ```
 
 #### _Deploy traefik-forward-auth_
@@ -22,6 +22,7 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.6
 | config.default-provider | string | `"oidc"` |  |
 | config.insecure-cookie | bool | `false` |  |
 | config.log-level | string | `"warn"` |  |
+| extraObjects | list | `[]` | Extra kubernetes objects to deploy (value evaluted as a template) |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"thomseddon/traefik-forward-auth"` |  |
 | image.tag | int | `2` |  |
