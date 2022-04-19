@@ -1,3 +1,7 @@
+# 0.0.7
+
+- Add `extraObjects` value for deploying other kubernetes objects.
+
 # 0.0.6
 
 - Update maintainer
