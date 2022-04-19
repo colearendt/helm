@@ -1,3 +1,7 @@
+# 0.3.1
+
+- Add `extraObjects` value for deploying other kubernetes objects.
+
 # 0.3.0
 
 - Fix issue with `strategy` being defined at the wrong scope ([#28](https://github.com/colearendt/helm/issues/28))

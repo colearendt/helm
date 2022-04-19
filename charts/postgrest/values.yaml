@@ -12,6 +12,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# -- Extra kubernetes objects to deploy (value evaluted as a template)
+extraObjects: []
+
 imagePullSecrets: []
 
 nameOverride: ""
