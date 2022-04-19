@@ -244,6 +244,21 @@ entries:
   postgrest:
   - apiVersion: v2
     appVersion: v8.0.0
+    created: "2022-04-19T17:51:29.814564542Z"
+    description: A Helm chart for deploying Postgrest to Kubernetes
+    digest: 2e55a2478fa5635353cb1bf10f26d1c6f3f477045c987b4b90881a5135b26bb3
+    icon: https://avatars.githubusercontent.com/u/15115011?s=200&v=4
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: postgrest
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/postgrest-0.3.1/postgrest-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: v8.0.0
     created: "2022-02-12T01:36:28.551648535Z"
     description: A Helm chart for deploying Postgrest to Kubernetes
     digest: 44ca1466b0c2addd64ca3030b19e65c25c251f5c6e1fe7f9e9f495002dd79a7b
@@ -333,6 +348,20 @@ entries:
     version: 0.1.0
   traefik-forward-auth:
   - apiVersion: v1
+    created: "2022-04-19T17:51:30.009011185Z"
+    description: Deploy traefik-forward-auth
+    digest: dc3af7ec8a6830382e54aacb60e543d57d850098e83e47305056bd429d3a7972
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: traefik-forward-auth
+    sources:
+    - https://github.com/thomseddon/traefik-forward-auth
+    urls:
+    - https://github.com/colearendt/helm/releases/download/traefik-forward-auth-0.0.7/traefik-forward-auth-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v1
     created: "2022-01-27T10:18:24.186366357Z"
     description: Deploy traefik-forward-auth
     digest: 1253e80599df02201391f370a8979614041f09cc91508dd70d89bad38ec5c598
@@ -417,4 +446,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-02-12T01:36:28.551713336Z"
+generated: "2022-04-19T17:51:30.00924179Z"
