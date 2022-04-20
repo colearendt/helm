@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square)
+![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.7:
+To install the chart with the release name `my-release` at version 0.0.8:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.7
+helm install my-release colearendt/traefik-forward-auth --version=0.0.8
 ```
 
 #### _Deploy traefik-forward-auth_
@@ -23,15 +23,23 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.7
 | config.insecure-cookie | bool | `false` |  |
 | config.log-level | string | `"warn"` |  |
 | extraObjects | list | `[]` | Extra kubernetes objects to deploy (value evaluted as a template) |
+| fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"thomseddon/traefik-forward-auth"` |  |
 | image.tag | int | `2` |  |
+| ingress.annotations | object | `{}` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0].host | string | `"chart-example.local"` |  |
+| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.tls | list | `[]` |  |
 | livenessProbe | object | `{}` |  |
+| nameOverride | string | `""` |  |
 | pod.env | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | readinessProbe | object | `{}` |  |
 | replicas | int | `1` |  |
 | resources | object | `{}` |  |
+| service.port | int | `80` |  |
 | serviceAnnotations | object | `{}` |  |
 | startupProbe | object | `{}` |  |
 | strategy | object | `{}` |  |
