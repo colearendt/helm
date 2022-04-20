@@ -30,7 +30,7 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.8
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts[0].paths[0] | string | `"/"` |  |
 | ingress.tls | list | `[]` |  |
 | livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
