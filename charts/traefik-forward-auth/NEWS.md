@@ -1,3 +1,7 @@
+# 0.0.8
+
+- Add `ingress` values to more easily deploy an ingress object
+
 # 0.0.7
 
 - Add `extraObjects` value for deploying other kubernetes objects.

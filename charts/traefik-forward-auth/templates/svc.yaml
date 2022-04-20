@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
-  annotations: 
+  annotations:
 {{ include "traefik-forward-auth.annotations" . | indent 4 }}
 spec:
   type: NodePort
@@ -12,6 +12,6 @@ spec:
     app: {{ .Release.Name }}
   ports:
   - protocol: TCP
-    port: 80
+    port: {{ .Values.service.port }}
     targetPort: 4181
 ---
