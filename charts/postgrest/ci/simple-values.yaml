@@ -5,3 +5,5 @@ pod:
   env:
     - name: TEST
       value: TEST
+ingress:
+  enabled: true
