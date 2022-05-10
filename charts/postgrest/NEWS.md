@@ -1,3 +1,7 @@
+# 0.3.2
+
+- Update ingress to use newer template, api version, etc.
+
 # 0.3.1
 
 - Add `extraObjects` value for deploying other kubernetes objects.
