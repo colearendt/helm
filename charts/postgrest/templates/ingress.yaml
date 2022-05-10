@@ -44,6 +44,9 @@ spec:
           {{- range .paths }}
           - {{- if kindIs "string" . }}
             path: {{ . }}
+            {{- if (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
+            pathType: ImplementationSpecific
+            {{- end }}
             {{- else }}
             path: {{ .path }}
             {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
