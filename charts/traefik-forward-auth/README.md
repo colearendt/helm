@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square)
+![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.8:
+To install the chart with the release name `my-release` at version 0.0.9:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.8
+helm install my-release colearendt/traefik-forward-auth --version=0.0.9
 ```
 
 #### _Deploy traefik-forward-auth_
@@ -28,9 +28,11 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.8
 | image.repository | string | `"thomseddon/traefik-forward-auth"` |  |
 | image.tag | int | `2` |  |
 | ingress.annotations | object | `{}` |  |
+| ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0] | string | `"/"` |  |
+| ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
 | livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
