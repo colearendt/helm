@@ -1,3 +1,7 @@
+# 0.0.9
+
+- Update ingress to use newer template, api version, etc.
+
 # 0.0.8
 
 - Add `ingress` values to more easily deploy an ingress object
