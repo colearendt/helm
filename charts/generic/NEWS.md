@@ -1,3 +1,7 @@
+# 0.2.3
+
+- Update ingress to use newer template, api version, etc.
+
 # 0.2.2
 
 - Update maintainer
