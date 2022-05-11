@@ -135,12 +135,18 @@ spec:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
+          {{- with .Values.pod.readinessProbe }}
           readinessProbe:
-            {{- toYaml .Values.pod.readinessProbe | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.pod.livenessProbe }}
           livenessProbe:
-            {{- toYaml .Values.pod.livenessProbe | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.pod.startupProbe }}
           startupProbe:
-            {{- toYaml .Values.pod.startupProbe | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

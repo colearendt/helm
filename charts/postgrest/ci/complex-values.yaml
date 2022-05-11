@@ -6,6 +6,8 @@ ingress:
   hosts:
     - host: chart-example.local
       paths: [/]
+postgrest:
+  dbAnonRole: someRole
 extraObjects:
   - apiVersion: v1
     kind: ConfigMap

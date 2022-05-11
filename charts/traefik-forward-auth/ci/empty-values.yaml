@@ -1,0 +1,5 @@
+config:
+  secret: something-secret
+  providers.oidc.issuer-url: https://demo.okta.com
+  providers.oidc.client-id: auth
+  providers.oidc.client-secret: super-secret

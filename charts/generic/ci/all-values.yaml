@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ubuntu
+  repository: nginx
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -23,11 +23,8 @@ pod:
   securityContext: {}
     # fsGroup: 2000
 
-command:
-  - "sh"
-  - "-c"
-args:
-  - "'echo hi'"
+command: []
+args: []
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -104,10 +101,7 @@ extraObjects:
       something: {{ printf "special" }}
 
 readinessProbe: null
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
+livenessProbe: null
 startupProbe:
   httpGet:
     path: /
