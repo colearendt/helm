@@ -19,6 +19,12 @@ image:
   tag: 2
   pullPolicy: IfNotPresent
 
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
 # -- Extra kubernetes objects to deploy (value evaluted as a template)
 extraObjects: []
 
