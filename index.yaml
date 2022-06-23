@@ -377,6 +377,20 @@ entries:
     version: 0.1.0
   traefik-forward-auth:
   - apiVersion: v1
+    created: "2022-06-23T18:29:59.825775304Z"
+    description: Deploy traefik-forward-auth
+    digest: 4c12d309dd527c094cb3ed7f86718fce1d241f2c8edc97799c280071effb7f41
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: traefik-forward-auth
+    sources:
+    - https://github.com/thomseddon/traefik-forward-auth
+    urls:
+    - https://github.com/colearendt/helm/releases/download/traefik-forward-auth-0.0.10/traefik-forward-auth-0.0.10.tgz
+    version: 0.0.10
+  - apiVersion: v1
     created: "2022-05-12T10:46:43.113879018Z"
     description: Deploy traefik-forward-auth
     digest: 514659accc13ddb11fd52fbfda304326f063afcca5bab1dacad29bdd6203a0b7
@@ -503,4 +517,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-05-12T10:46:43.114062818Z"
+generated: "2022-06-23T18:29:59.825866106Z"
