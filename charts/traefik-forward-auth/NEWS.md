@@ -1,3 +1,7 @@
+# 0.0.10
+
+- Add tolerations, nodeSelector, and affinity values
+
 # 0.0.9
 
 - Update ingress to use newer template, api version, etc.
