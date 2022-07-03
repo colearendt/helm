@@ -1,3 +1,14 @@
+# 0.2.4
+
+- Add `mountConfig`, `mountSecret` and `secretEnv` values sections.
+  - Allows defining a ConfigMap and mounting individual files into the pod
+  - Allows defining a secret and mounting individual files into the pod
+  - Allows defining a secret and including the secrets as environment variables
+  - Note that values are evaluated as templates and file mode for mounted files is configurable (in a wholesale fashion)
+  - Close [#16](https://github.com/colearendt/helm/issues/16)
+  - (Note that this functionality is possible today with `extraObjects` and such, but should be made easier by these
+    helpers)
+
 # 0.2.3
 
 - Update ingress to use newer template, api version, etc.

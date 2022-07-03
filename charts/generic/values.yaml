@@ -10,6 +10,36 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- an array of name, mountPath, and content keys that will be used to create configMap entries
+# and mount them as files into the pod. Strings evaluated as a template
+mountConfig: []
+  # - name: my-config
+  #   mountPath: /mnt/some-file.txt
+  #   content: |
+  #     config file contents
+
+# -- The file mode to use for mounting the mountConfig
+mountConfigMode: 0644
+
+# -- an array of name, mountPath, and content keys that will be used to create configMap entries
+# and mount them into the pod. Strings evaluated as a template
+mountSecret: []
+  # - name: my-config
+  #   mountPath: /mnt/some-file.txt
+  #   content: |
+  #     yaml-file:
+  #       keys: values
+  #       keys2: values2
+
+# -- The file mode to use for mounting the secretConfig
+mountSecretMode: 0640
+
+# -- an array of name, value keys that will be used to create secret entries and attach as environment variables.
+# Values evaluated as a template
+secretEnv: []
+  # - name: MY_ENV_VAR
+  #   value: some-value
+
 pod:
   port: 80
   env: []

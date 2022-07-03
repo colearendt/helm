@@ -1,3 +1,5 @@
+---
+{{- $global := $ }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,7 +39,24 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{- toYaml .Values.pod.env | nindent 12 }}
+            {{- with .Values.pod.env }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- with .Values.secretEnv }}
+              {{- range $secret := .}}
+                {{- if or (not (hasKey $secret "name" )) (not (hasKey $secret "value")) }}
+                  {{- fail "secretEnv entries require both a 'name' and a 'value' key" }}
+                {{- end }}
+            - name: {{ get $secret "name" }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "generic.fullname" $global }}-secret-env
+                  key: {{ get $secret "name" }}
+              {{- end }}
+            {{- end }}
+            {{- if and (not .Values.pod.env) (not .Values.secretEnv) }}
+            []
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.pod.port }}
@@ -64,15 +83,22 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if or .Values.pod.volumeMounts .Values.storage.create }}
           volumeMounts:
-            {{- if .Values.storage.create }}
+            {{- if .Values.storage.create -}}
             - name: storage
               mountPath: {{ .Values.storage.mountPath }}
-            {{- end }}
-            {{- with .Values.pod.volumeMounts }}
+            {{- end -}}
+            {{- with .Values.pod.volumeMounts -}}
               {{- . | toYaml | nindent 12 }}
+            {{- end -}}
+            {{- with .Values.mountConfig -}}
+              {{- include "generic.config.volumeMount" (dict "value" . "volumeName" "config-volume") | nindent 12 }}
             {{- end }}
+            {{- with .Values.mountSecret }}
+              {{- include "generic.config.volumeMount" (dict "value" . "volumeName" "secret-volume") | nindent 12 }}
+            {{- end }}
+          {{- if not (or .Values.pod.volumeMounts .Values.storage.create .Values.mountConfig .Values.mountSecret) }}
+            []
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -84,6 +110,18 @@ spec:
       {{- end }}
       {{- if or .Values.pod.volumes .Values.storage.create }}
       volumes:
+        {{- if .Values.mountConfig }}
+        - name: config-volume
+          configMap:
+            name: {{ include "generic.fullname" . }}-config
+            defaultMode: {{ .Values.mountConfigMode }}
+        {{- end }}
+        {{- if .Values.mountSecret }}
+        - name: secret-volume
+          secret:
+            secretName: {{ include "generic.fullname" . }}-secret-mount
+            defaultMode: {{ .Values.mountSecretMode }}
+        {{- end }}
         {{- if .Values.storage.create }}
         - name: storage
           persistentVolumeClaim:
