@@ -1,14 +1,14 @@
 # generic
 
-![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.2.3:
+To install the chart with the release name `my-release` at version 0.2.4:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/generic --version=0.2.3
+helm install my-release colearendt/generic --version=0.2.4
 ```
 
 #### _A generic Helm chart for Kubernetes_
@@ -38,6 +38,10 @@ helm install my-release colearendt/generic --version=0.2.3
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
 | livenessProbe | object | `{}` | customize the primary container's livenessProbe. Default none |
+| mountConfig | list | `[]` | an array of name, mountPath, and content keys that will be used to create configMap entries and mount them as files into the pod. Strings evaluated as a template |
+| mountConfigMode | int | `420` | The file mode to use for mounting the mountConfig |
+| mountSecret | list | `[]` | an array of name, mountPath, and content keys that will be used to create configMap entries and mount them into the pod. Strings evaluated as a template |
+| mountSecretMode | int | `416` | The file mode to use for mounting the secretConfig |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | pod.annotations | object | `{}` | Additional annotations to add to the pods |
@@ -50,6 +54,7 @@ helm install my-release colearendt/generic --version=0.2.3
 | readinessProbe | object | `{"httpGet":{"path":"/","port":"http"}}` | customize the primary container's readinessProbe. Default is httpGet on the default `http` port |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
+| secretEnv | list | `[]` | an array of name, value keys that will be used to create secret entries and attach as environment variables. Values evaluated as a template |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |

@@ -93,11 +93,11 @@ jobs:
       # no allow-failure until https://github.com/actions/toolkit/issues/399
       - name: Run chart-testing (install changed)
         if: ${{ github.ref != 'refs/heads/main' }}
-        run: ct install --target-branch main
+        run: ct install --target-branch main --upgrade
         continue-on-error: true
 
       # no allow-failure until https://github.com/actions/toolkit/issues/399
       - name: Run chart-testing (install all)
         if: ${{ github.ref == 'refs/heads/main' }}
-        run: ct install --target-branch main --all
+        run: ct install --target-branch main --all --upgrade
         continue-on-error: true
