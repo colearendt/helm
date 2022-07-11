@@ -1,14 +1,14 @@
 # example
 
-![Version: 0.1.3-dev02](https://img.shields.io/badge/Version-0.1.3--dev02-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
+![Version: 0.1.3-beta02](https://img.shields.io/badge/Version-0.1.3--beta02-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.1.3-dev02:
+To install the chart with the release name `my-release` at version 0.1.3-beta02:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install --devel my-release colearendt/example --version=0.1.3-dev02
+helm install --devel my-release colearendt/example --version=0.1.3-beta02
 ```
 
 #### _A Helm chart for Kubernetes_
