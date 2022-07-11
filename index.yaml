@@ -3,6 +3,20 @@ entries:
   example:
   - apiVersion: v2
     appVersion: 1.16.1
+    created: "2022-07-11T19:45:03.851934691Z"
+    description: A Helm chart for Kubernetes
+    digest: 972df4ff833bd786bc69a88ec081b05c8fc9671230c9b6fb4f7920740a62661a
+    maintainers:
+    - email: helm@colearendt.com
+      name: colearendt
+      url: https://github.com/colearendt
+    name: example
+    type: application
+    urls:
+    - https://github.com/colearendt/helm/releases/download/example-0.1.3-dev02/example-0.1.3-dev02.tgz
+    version: 0.1.3-dev02
+  - apiVersion: v2
+    appVersion: 1.16.1
     created: "2022-01-27T10:18:23.795870231Z"
     description: A Helm chart for Kubernetes
     digest: bcfb5040f2e57466389fecb3d4bfb6ffeac242418b6ce34cbd421d6343bf155e
@@ -531,4 +545,4 @@ entries:
     urls:
     - https://github.com/colearendt/helm/releases/download/training-ns-0.0.1/training-ns-0.0.1.tgz
     version: 0.0.1
-generated: "2022-07-11T19:42:01.234023815Z"
+generated: "2022-07-11T19:45:03.85201609Z"
