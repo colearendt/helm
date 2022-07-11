@@ -12,6 +12,8 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
+      - name: Log
+        run: echo '${{ toJSON(github.event) }}'
       - name: Checkout
         uses: actions/checkout@v2
         with:
