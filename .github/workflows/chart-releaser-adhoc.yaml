@@ -12,18 +12,13 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
-      - name: Log
-        run: echo '${{ toJSON(github.event) }}'
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.issue.pull_request.head_ref }}
-          fetch-depth: 0
 
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - uses: r-lib/actions/pr-fetch@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
