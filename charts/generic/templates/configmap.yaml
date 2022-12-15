@@ -1,0 +1,10 @@
+{{- if .Values.mountConfig }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "generic.fullname" . }}-config
+  namespace: {{ .Release.Namespace }}
+data:
+  {{- include "generic.config.configmap" (dict "context" $ "value" .Values.mountConfig ) | nindent 2 }}
+{{- end }}

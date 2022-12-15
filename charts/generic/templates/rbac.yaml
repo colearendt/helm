@@ -1,0 +1,59 @@
+{{- if .Values.rbac.role.rules }}
+{{- $roleName := .Values.rbac.role.name | default (include "generic.fullname" .) }}
+{{- $targetNamespaces := .Values.rbac.role.targetNamespaces }}
+{{- if eq (len $targetNamespaces) 0 }}
+  {{- $targetNamespaces = list $.Release.Namespace }}
+{{- end }}
+  {{- range $_, $ns := $targetNamespaces }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ $roleName }}
+  namespace: {{ $ns }}
+rules:
+  {{- with $.Values.rbac.role.rules }}
+    {{- toYaml . | nindent 2}}
+  {{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $roleName }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $roleName }}
+  namespace: {{ $ns }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "generic.serviceAccountName" $ }}
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+{{- end }}
+{{- if .Values.rbac.clusterRole.rules }}
+  {{- $clusterRoleName := .Values.rbac.clusterRole.name | default (include "generic.fullname" . ) }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ $clusterRoleName }}
+rules:
+  {{- with .Values.rbac.clusterRole.rules }}
+    {{- toYaml . | nindent 2}}
+  {{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ $clusterRoleName }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ $clusterRoleName }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "generic.serviceAccountName" . }}
+    namespace: {{ $.Release.Namespace }}
+---
+{{- end }}

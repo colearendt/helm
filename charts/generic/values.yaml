@@ -10,6 +10,36 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- an array of name, mountPath, and content keys that will be used to create configMap entries
+# and mount them as files into the pod. Strings evaluated as a template
+mountConfig: []
+  # - name: my-config
+  #   mountPath: /mnt/some-file.txt
+  #   content: |
+  #     config file contents
+
+# -- The file mode to use for mounting the mountConfig
+mountConfigMode: 0644
+
+# -- an array of name, mountPath, and content keys that will be used to create configMap entries
+# and mount them into the pod. Strings evaluated as a template
+mountSecret: []
+  # - name: my-config
+  #   mountPath: /mnt/some-file.txt
+  #   content: |
+  #     yaml-file:
+  #       keys: values
+  #       keys2: values2
+
+# -- The file mode to use for mounting the secretConfig
+mountSecretMode: 0640
+
+# -- an array of name, value keys that will be used to create secret entries and attach as environment variables.
+# Values evaluated as a template
+secretEnv: []
+  # - name: MY_ENV_VAR
+  #   value: some-value
+
 pod:
   port: 80
   env: []
@@ -45,6 +75,20 @@ serviceAccount:
   # -- The name of the service account to use.
   # -- If not set and create is true, a name is generated using the fullname template
   name: ""
+
+rbac:
+  role:
+    # -- The name for the created role(s). If empty, the "chart fullname" is used.
+    name: ""
+    # -- Rule(s) used as-is in the creation of Role(s)
+    rules: []
+    # -- The namespaces to create roles in. If empty, the Release.Namespace will be used by default.
+    targetNamespaces: []
+  clusterRole:
+    # -- The name for the ClusterRole. If empty, the "chart fullname" is used.
+    name: ""
+    # -- Rules used as-is in the creation of a ClusterRole
+    rules: []
 
 securityContext: {}
   # capabilities:

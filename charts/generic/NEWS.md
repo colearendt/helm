@@ -1,3 +1,18 @@
+# 0.2.4
+
+- Add `mountConfig`, `mountSecret` and `secretEnv` values sections. ([#45](https://github.com/colearendt/helm/pull/45))
+  - Allows defining a ConfigMap and mounting individual files into the pod
+  - Allows defining a secret and mounting individual files into the pod
+  - Allows defining a secret and including the secrets as environment variables
+  - Note that values are evaluated as templates and file mode for mounted files is configurable (in a wholesale fashion)
+  - Close [#16](https://github.com/colearendt/helm/issues/16)
+  - (Note that this functionality is possible today with `extraObjects` and such, but should be made easier by these
+    helpers)
+- Add `rbac` configuration section ([#45](https://github.com/colearendt/helm/pull/45))
+  - This allows defining rbac rules inline for both `role` and `clusterRole` (using `role.rules` and `clusterRole.rules`)
+  - It defaults to the release namespace (for `role`), but allows multiple `role.targetNamespaces`. NOTE: the default is only
+    used when _no_ `targetNamespaces` are defined.
+
 # 0.2.3
 
 - Update ingress to use newer template, api version, etc.

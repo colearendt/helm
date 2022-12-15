@@ -1,0 +1,16 @@
+rbac:
+  role:
+    targetNamespaces: ["one", "two"]
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "pods"
+        verbs:
+          - "get"
+          - "create"
+          - "update"
+          - "patch"
+          - "watch"
+          - "list"
+          - "delete"

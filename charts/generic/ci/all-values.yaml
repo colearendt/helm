@@ -106,3 +106,45 @@ startupProbe:
   httpGet:
     path: /
     port: http
+
+mountConfig:
+  - name: test.sh
+    mountPath: /mnt/test.sh
+    content:
+      somekey: someval
+      namespace: "{{ $.Release.Namespace }}"
+  - name: another.sh
+    mountPath: /mnt/test.sh
+    content: |
+      somekey: someval
+      namespace: {{ $.Release.Namespace }}
+  - mountPath: /mnt/some-file.txt
+    content: |
+      mykey: myval
+
+mountSecret:
+  - name: secret.sh
+    mountPath: /mnt/secret.sh
+    content:
+      somekey: someval
+      namespace: "{{ $.Release.Namespace }}"
+  - name: secret2.sh
+    mountPath: /mnt/secret2.sh
+    content: |
+      somekey: someval
+      namespace: {{ $.Release.Namespace }}
+  - mountPath: /mnt/example.txt
+    content: |
+      mykey: myval
+
+secretEnv:
+  - name: ONE_ENV
+    value: 1
+  - name: TWO_ENV
+    value: 2
+  - name: COMPLEX_ENV
+    value: |
+      some-value-that-is-complex
+      with newlines!
+  - name: TEMPLATE_ENV
+    value: "{{ $.Release.Namespace }}"
