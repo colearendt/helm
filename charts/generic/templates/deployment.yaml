@@ -84,7 +84,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            {{- if .Values.storage.create -}}
+            {{- if .Values.storage.create }}
             - name: storage
               mountPath: {{ .Values.storage.mountPath }}
             {{- end -}}
