@@ -1,0 +1,25 @@
+rbac:
+  clusterRole:
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "nodes"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+  role:
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "pods"
+        verbs:
+          - "get"
+          - "create"
+          - "update"
+          - "patch"
+          - "watch"
+          - "list"
+          - "delete"

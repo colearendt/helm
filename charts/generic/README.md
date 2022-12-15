@@ -51,6 +51,11 @@ helm install my-release colearendt/generic --version=0.2.4
 | pod.securityContext | object | `{}` |  |
 | pod.volumeMounts | list | `[]` |  |
 | pod.volumes | list | `[]` |  |
+| rbac.clusterRole.name | string | `""` | The name for the ClusterRole. If empty, the "chart fullname" is used. |
+| rbac.clusterRole.rules | list | `[]` | Rules used as-is in the creation of a ClusterRole |
+| rbac.role.name | string | `""` | The name for the created role(s). If empty, the "chart fullname" is used. |
+| rbac.role.rules | list | `[]` | Rule(s) used as-is in the creation of Role(s) |
+| rbac.role.targetNamespaces | list | `[]` | The namespaces to create roles in. If empty, the Release.Namespace will be used by default. |
 | readinessProbe | object | `{"httpGet":{"path":"/","port":"http"}}` | customize the primary container's readinessProbe. Default is httpGet on the default `http` port |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |

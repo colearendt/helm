@@ -76,6 +76,20 @@ serviceAccount:
   # -- If not set and create is true, a name is generated using the fullname template
   name: ""
 
+rbac:
+  role:
+    # -- The name for the created role(s). If empty, the "chart fullname" is used.
+    name: ""
+    # -- Rule(s) used as-is in the creation of Role(s)
+    rules: []
+    # -- The namespaces to create roles in. If empty, the Release.Namespace will be used by default.
+    targetNamespaces: []
+  clusterRole:
+    # -- The name for the ClusterRole. If empty, the "chart fullname" is used.
+    name: ""
+    # -- Rules used as-is in the creation of a ClusterRole
+    rules: []
+
 securityContext: {}
   # capabilities:
   #   drop:
