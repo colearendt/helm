@@ -1,3 +1,7 @@
+# 0.2.5
+
+- Fix bug in `rbac` `RoleBinding` creation
+
 # 0.2.4
 
 - Add `mountConfig`, `mountSecret` and `secretEnv` values sections. ([#45](https://github.com/colearendt/helm/pull/45))
