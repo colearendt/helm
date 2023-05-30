@@ -10,6 +10,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- whether to include the checksum/config and checksum/secret mount labels that automatically force pod rollover on
+# config change
+includeMountLabel: true
+
 # -- an array of name, mountPath, and content keys that will be used to create configMap entries
 # and mount them as files into the pod. Strings evaluated as a template
 mountConfig: []

@@ -1,14 +1,14 @@
 # generic
 
-![Version: 0.2.5](https://img.shields.io/badge/Version-0.2.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.2.5:
+To install the chart with the release name `my-release` at version 0.2.6:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/generic --version=0.2.5
+helm install my-release colearendt/generic --version=0.2.6
 ```
 
 #### _A generic Helm chart for Kubernetes_
@@ -30,6 +30,7 @@ helm install my-release colearendt/generic --version=0.2.5
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
+| includeMountLabel | bool | `true` | whether to include the checksum/config and checksum/secret mount labels that automatically force pod rollover on config change |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |

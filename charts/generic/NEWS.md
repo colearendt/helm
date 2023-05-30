@@ -1,3 +1,10 @@
+# 0.2.6
+
+- Fix issue with `NOTES.txt` displaying ingress wrong
+- Fix issue with volume mounts of `mountConfig` configuration
+- Add a `checksum/config` and `checksum/secret` label to force deployment rollover when config changes
+  - Also include a `includeMountLabel` toggle to turn this behavior off (it is on / `true` by default)
+
 # 0.2.5
 
 - Fix bug in `rbac` `RoleBinding` creation
