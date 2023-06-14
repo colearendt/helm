@@ -75,18 +75,12 @@ pod:
   annotations: {}
   containerPort: 9000
   env: []
-  readinessProbe:
-    httpGet:
-      path: /
-      port: http
-    initialDelaySeconds: 5
-    periodSeconds: 5
   livenessProbe: {}
   startupProbe: {}
   volumes: []
   volumeMounts: []
   securityContext: {}
-
+  
 service:
   type: ClusterIP
   port: 80

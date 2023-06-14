@@ -75,3 +75,11 @@ Usage:
         {{- tpl (.value | toYaml) .context }}
     {{- end }}
 {{- end -}}
+
+{{/*
+Set the value of PGRST_ADMIN_SERVER_PORT to a fixed port.
+*/}}
+{{- define "postgrest.adminPort" -}}
+9001
+{{- end }}
+

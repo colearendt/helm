@@ -128,6 +128,10 @@ spec:
             - name: PGRST_RAW_MEDIA_TYPES
               value: {{ .Values.postgrest.rawMediaTypes }}
             {{- end }}
+            {{- if .Values.postgrest.adminServerPort }}
+            - name: PGRST_ADMIN_SERVER_PORT
+              value: {{ include "postgrest.adminPort" . }}
+            {{- end }}
             {{- if .Values.pod.env }}
               {{- toYaml .Values.pod.env | nindent 12 }}
             {{- end }}
@@ -135,10 +139,15 @@ spec:
             - name: http
               containerPort: {{ .Values.pod.containerPort }}
               protocol: TCP
-          {{- with .Values.pod.readinessProbe }}
+            - name: http-admin
+              containerPort: {{ include "postgrest.adminPort" . }}
+              protocol: TCP
           readinessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            httpGet:
+              path: /
+              port: http-admin
+            initialDelaySeconds: 5
+            periodSeconds: 5
           {{- with .Values.pod.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
