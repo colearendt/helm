@@ -40,11 +40,15 @@ spec:
       serviceAccountName: {{ include "generic.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.pod.securityContext | nindent 8 }}
+      {{- with .Values.pod.initContainers }}
+      initContainers:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{- include "generic.image" . | nindent 12 }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             {{- with .Values.pod.env }}
@@ -66,9 +70,10 @@ spec:
             []
             {{- end }}
           ports:
-            - name: http
+            - name: {{ .Values.service.portName }}
               containerPort: {{ .Values.pod.port }}
               protocol: TCP
+            {{- toYaml .Values.pod.otherPorts | nindent 12 }}
           {{- with .Values.command }}
           command:
             {{- toYaml . | nindent 12 }}
@@ -108,6 +113,9 @@ spec:
           {{- if not (or .Values.pod.volumeMounts .Values.storage.create .Values.mountConfig .Values.mountSecret) }}
             []
           {{- end }}
+        {{- with .Values.pod.otherContainers }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

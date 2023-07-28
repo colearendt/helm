@@ -1,14 +1,14 @@
 # generic
 
-![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.2.6:
+To install the chart with the release name `my-release` at version 0.2.7:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/generic --version=0.2.6
+helm install my-release colearendt/generic --version=0.2.7
 ```
 
 #### _A generic Helm chart for Kubernetes_
@@ -47,7 +47,10 @@ helm install my-release colearendt/generic --version=0.2.6
 | nodeSelector | object | `{}` |  |
 | pod.annotations | object | `{}` | Additional annotations to add to the pods |
 | pod.env | list | `[]` |  |
+| pod.initContainers | list | `[]` |  |
 | pod.labels | object | `{}` | Additional labels to add to the pods |
+| pod.otherContainers | list | `[]` |  |
+| pod.otherPorts | list | `[]` |  |
 | pod.port | int | `80` |  |
 | pod.securityContext | object | `{}` |  |
 | pod.volumeMounts | list | `[]` |  |
@@ -62,7 +65,9 @@ helm install my-release colearendt/generic --version=0.2.6
 | resources | object | `{}` |  |
 | secretEnv | list | `[]` | an array of name, value keys that will be used to create secret entries and attach as environment variables. Values evaluated as a template |
 | securityContext | object | `{}` |  |
+| service.otherPorts | list | `[]` |  |
 | service.port | int | `80` |  |
+| service.portName | string | `"http"` | The port.name for the default port. Also used as the container port.name as well. |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
