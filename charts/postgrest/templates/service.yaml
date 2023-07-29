@@ -11,8 +11,8 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    {{- if .Values.postgrest.adminServerPort }}
-    - port: {{ include "postgrest.adminPort" . }}
+    {{- if .Values.service.adminPort }}
+    - port: {{ .Values.service.adminPort }}
       targetPort: http-admin
       protocol: TCP
       name: http-admin
