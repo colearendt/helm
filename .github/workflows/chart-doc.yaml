@@ -40,6 +40,6 @@ jobs:
           git config --local user.name "GitHub Actions"
           git commit charts/*/README.md -m 'Update helm-docs and README.md' || echo "No changes to commit"
 
-      - uses: r-lib/actions/pr-push@main
+      - uses: r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
