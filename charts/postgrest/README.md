@@ -1,14 +1,14 @@
 # postgrest
 
-![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v11.1.0](https://img.shields.io/badge/AppVersion-v11.1.0-informational?style=flat-square)
+![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v11.1.0](https://img.shields.io/badge/AppVersion-v11.1.0-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.3.3:
+To install the chart with the release name `my-release` at version 0.3.4:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/postgrest --version=0.3.3
+helm install my-release colearendt/postgrest --version=0.3.4
 ```
 
 #### _A Helm chart for deploying Postgrest to Kubernetes_
@@ -40,14 +40,12 @@ helm install my-release colearendt/postgrest --version=0.3.3
 | initContainers | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| pod.adminPort | int | `9001` | The admin server port for PostgREST. Automatically sets the adminServerPort configuration value. |
 | pod.annotations | object | `{}` |  |
 | pod.containerPort | int | `9000` |  |
 | pod.env | list | `[]` |  |
 | pod.livenessProbe | object | `{}` |  |
-| pod.readinessProbe.httpGet.path | string | `"/"` |  |
-| pod.readinessProbe.httpGet.port | string | `"http"` |  |
-| pod.readinessProbe.initialDelaySeconds | int | `5` |  |
-| pod.readinessProbe.periodSeconds | int | `5` |  |
+| pod.readinessProbe | object | `{"httpGet":{"path":"/ready","port":"http-admin"},"initialDelaySeconds":5,"periodSeconds":5}` | The readiness probe for PostgREST. Can also use requests to /live per https://postgrest.org/en/stable/references/admin.html#health-check |
 | pod.securityContext | object | `{}` |  |
 | pod.startupProbe | object | `{}` |  |
 | pod.volumeMounts | list | `[]` |  |
@@ -75,6 +73,7 @@ helm install my-release colearendt/postgrest --version=0.3.3
 | resources | object | `{}` |  |
 | secret | object | `{}` |  |
 | securityContext | object | `{}` |  |
+| service.adminPort | int | `9001` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
