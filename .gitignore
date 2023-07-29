@@ -1,3 +1,4 @@
 
 # charts to ignore
 charts/nfs-subdir-external-provisioner
+bin/
