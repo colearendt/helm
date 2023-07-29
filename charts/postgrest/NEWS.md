@@ -1,3 +1,7 @@
+# 0.3.5
+
+- Make values `postgrest.dbUri` and `postgrest.jwtSecret` required
+
 # 0.3.4
 
 - Add configuration for the `pod.adminPort` and `service.adminPort`
