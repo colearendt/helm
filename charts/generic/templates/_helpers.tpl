@@ -62,6 +62,20 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
+{{- /*
+Define the image. This is helpful in case the tag has a sha in it
+
+Should be passed values directly
+ */ -}}
+{{- define "generic.image" -}}
+{{- $tag := .Values.image.tag | default .Chart.AppVersion }}
+{{- if hasPrefix "sha256:" $tag -}}
+"{{ .Values.image.repository }}@{{ $tag }}"
+{{- else -}}
+"{{ .Values.image.repository }}:{{ $tag }}"
+{{- end }}
+{{- end }}
+
 {{/* thanks to https://github.com/bitnami/charts/blob/master/bitnami/common/templates/_tplvalues.tpl */}}
 {{/*
 Renders a value that contains template.

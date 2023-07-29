@@ -1,3 +1,7 @@
+# 0.3.3
+
+- Bump PostgREST version to v11.1.0
+
 # 0.3.2
 
 - Update ingress to use newer template, api version, etc.
