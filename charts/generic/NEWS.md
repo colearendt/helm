@@ -1,3 +1,11 @@
+# 0.2.7
+
+- Add support for `pod.otherPorts` and `service.otherPorts` with verbatim spec exposed
+- Add support for `service.portName` (which gets used by `pod.container.port` too)
+  - Beware that the `readinessProbe` does target port `http` by default. This does not change automatically
+- Allow `image@sha256:12345` type image references dynamically by allowing `tag` to be a `sha256:` value
+- Add support for `pod.initContainers` and `pod.otherContainers`
+
 # 0.2.6
 
 - Fix issue with `NOTES.txt` displaying ingress wrong

@@ -60,6 +60,7 @@ postgrest:
   preRequest: ""
   rootSpec: ""
   rawMediaTypes: ""
+  # NOTE: adminServerPort is set via pod.adminPort and service.adminPort
 
 secret: {}
 
@@ -74,11 +75,14 @@ securityContext: {}
 pod:
   annotations: {}
   containerPort: 9000
+  # -- The admin server port for PostgREST. Automatically sets the adminServerPort configuration value.
+  adminPort: 9001
   env: []
+  # -- The readiness probe for PostgREST. Can also use requests to /live per https://postgrest.org/en/stable/references/admin.html#health-check
   readinessProbe:
     httpGet:
-      path: /
-      port: http
+      path: /ready
+      port: http-admin
     initialDelaySeconds: 5
     periodSeconds: 5
   livenessProbe: {}
@@ -90,6 +94,7 @@ pod:
 service:
   type: ClusterIP
   port: 80
+  adminPort: 9001
 
 ingress:
   enabled: false

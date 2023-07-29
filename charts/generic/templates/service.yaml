@@ -8,8 +8,11 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.portName }}
       protocol: TCP
-      name: http
+      name: {{ .Values.service.portName }}
+    {{- if .Values.service.otherPorts }}
+    {{- toYaml .Values.service.otherPorts | nindent 4 }}
+    {{- end }}
   selector:
     {{- include "generic.selectorLabels" . | nindent 4 }}

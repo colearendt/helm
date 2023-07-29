@@ -1,3 +1,14 @@
+# 0.3.4
+
+- Add configuration for the `pod.adminPort` and `service.adminPort`
+  - `pod.adminPort` controls the PostgREST config and deployment
+  - `serivce.adminPort` controls the exposure of the health check to the service definition
+- Update the `readinessProbe` to use the admin health-check
+
+# 0.3.3
+
+- Bump PostgREST version to v11.1.0
+
 # 0.3.2
 
 - Update ingress to use newer template, api version, etc.

@@ -46,6 +46,7 @@ secretEnv: []
 
 pod:
   port: 80
+  otherPorts: []
   env: []
   volumes: []
   volumeMounts: []
@@ -55,6 +56,8 @@ pod:
   labels: {}
   securityContext: {}
     # fsGroup: 2000
+  initContainers: []
+  otherContainers: []
 
 # -- command for the pod's primary container. Default is the container's default entrypoint
 command: []
@@ -105,6 +108,9 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  # -- The port.name for the default port. Also used as the container port.name as well.
+  portName: http
+  otherPorts: []
 
 ingress:
   enabled: false
