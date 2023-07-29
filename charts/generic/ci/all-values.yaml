@@ -4,7 +4,7 @@ image:
   repository: nginx
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "sha256:12345"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -12,6 +12,10 @@ fullnameOverride: ""
 
 pod:
   port: 80
+  otherPorts:
+    - name: rpc
+      containerPort: 8090
+      protocol: TCP
   env:
     - name: "TEST_ENV"
       value: "SOME_VALUE"
@@ -22,6 +26,12 @@ pod:
     one: two
   securityContext: {}
     # fsGroup: 2000
+  initContainers:
+    - name: test-init
+      image: colearendt/netcat:bionic
+  otherContainers:
+    - name: sidecar
+      image: "nginx:latest"
 
 command: []
 args: []
@@ -46,6 +56,12 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  portName: testing
+  otherPorts:
+    - name: rpc
+      targetPort: rpc
+      protocol: TCP
+      port: 8090
 
 ingress:
   enabled: false
@@ -105,7 +121,7 @@ livenessProbe: null
 startupProbe:
   httpGet:
     path: /
-    port: http
+    port: testing
 
 mountConfig:
   - name: test.sh
