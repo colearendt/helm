@@ -41,6 +41,7 @@ command: []
 args: []
 
 postgrest:
+  # -- The dbUri for connecting to the database. Required
   dbUri: ""
   dbSchema: ""
   dbAnonRole: ""
@@ -52,6 +53,7 @@ postgrest:
   serverHost: ""
   serverPort: "9000"
   openApiServerProxyUri: ""
+  # -- The JWT Secret used for constructing JWTs. Required
   jwtSecret: ""
   secretIsBase64: ""
   jwtAud: ""
