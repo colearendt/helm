@@ -113,7 +113,7 @@ spec:
               value: {{ .Values.postgrest.roleClaimKey }}
             {{- end }}
             {{- if .Values.postgrest.maxRows }}
-            - name: PGRST_MAX_ROWS
+            - name: PGRST_DB_MAX_ROWS
               value: {{ .Values.postgrest.maxRows }}
             {{- end }}
             {{- if .Values.postgrest.preRequest }}
