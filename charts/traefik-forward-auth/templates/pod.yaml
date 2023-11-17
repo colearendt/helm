@@ -25,7 +25,8 @@ spec:
       - name: proxy
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         {{- if .Values.pod.env }}
-{{ toYaml .Values.pod.env | indent 8 }}
+        env:
+{{ toYaml .Values.pod.env | indent 10 }}
         {{- end }}
         {{- if .Values.command }}
         command:
