@@ -1,3 +1,7 @@
+# 0.0.11
+
+- Set pod.env field when env vars are provided
+
 # 0.0.10
 
 - Add tolerations, nodeSelector, and affinity values
