@@ -1,3 +1,7 @@
+# 0.0.12
+
+- Switch pod.env field to a list
+
 # 0.0.11
 
 - Set pod.env field when env vars are provided

@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.11](https://img.shields.io/badge/Version-0.0.11-informational?style=flat-square)
+![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.11:
+To install the chart with the release name `my-release` at version 0.0.12:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.11
+helm install my-release colearendt/traefik-forward-auth --version=0.0.12
 ```
 
 #### _Deploy traefik-forward-auth_
@@ -38,7 +38,7 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.11
 | livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| pod.env | object | `{}` |  |
+| pod.env | list | `[]` |  |
 | podAnnotations | object | `{}` |  |
 | readinessProbe | object | `{}` |  |
 | replicas | int | `1` |  |

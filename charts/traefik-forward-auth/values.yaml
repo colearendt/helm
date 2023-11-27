@@ -29,7 +29,7 @@ affinity: {}
 extraObjects: []
 
 pod:
-  env: {}
+  env: []
 command:
   - './traefik-forward-auth'
 args:
