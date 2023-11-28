@@ -50,3 +50,14 @@ Usage:
         {{- tpl (.value | toYaml) .context }}
     {{- end }}
 {{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "traefik-forward-auth.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create -}}
+    {{ default (include "traefik-forward-auth.fullname" .) .Values.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.serviceAccount.name }}
+{{- end -}}
+{{- end -}}
