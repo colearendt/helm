@@ -42,6 +42,9 @@ spec:
         volumeMounts:
           - name: config
             mountPath: "/config"
+          {{- if .Values.pod.volumeMounts }}
+{{ toYaml .Values.pod.volumeMounts | indent 10 }}
+          {{- end }}
         {{- if .Values.resources }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
@@ -77,4 +80,7 @@ spec:
           items:
           - key: config.ini
             path: "config.ini"
+      {{- if .Values.pod.volumes }}
+{{ toYaml .Values.pod.volumes | indent 6 }}
+      {{- end }}
 ---

@@ -1,3 +1,7 @@
+# 0.0.13
+
+- Add pod volumes and volume mounts and option to create a service account
+
 # 0.0.12
 
 - Switch pod.env field to a list
