@@ -21,6 +21,7 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      serviceAccountName: {{ include "traefik-forward-auth.serviceAccountName" . }}
       containers:
       - name: proxy
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
