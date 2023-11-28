@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square)
+![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.13:
+To install the chart with the release name `my-release` at version 0.0.14:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.13
+helm install my-release colearendt/traefik-forward-auth --version=0.0.14
 ```
 
 #### _Deploy traefik-forward-auth_
