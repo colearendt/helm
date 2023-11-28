@@ -1,3 +1,7 @@
+# 0.0.14
+
+- Set serviceAccountName on deployment
+
 # 0.0.13
 
 - Add pod volumes and volume mounts and option to create a service account
