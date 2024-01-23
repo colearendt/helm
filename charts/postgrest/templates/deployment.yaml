@@ -101,7 +101,7 @@ spec:
               value: "@/mnt/secret/jwt-secret.txt"
             {{- end }}
             {{- if .Values.postgrest.secretIsBase64 }}
-            - name: PGRST_SECRET_IS_BASE64
+            - name: PGRST_JWT_SECRET_IS_BASE64
               value: {{ .Values.postgrest.secretIsBase64 }}
             {{- end }}
             {{- if .Values.postgrest.jwtAud }}
