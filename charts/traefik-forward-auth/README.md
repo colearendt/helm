@@ -1,14 +1,14 @@
 # traefik-forward-auth
 
-![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square)
+![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square)
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release` at version 0.0.10:
+To install the chart with the release name `my-release` at version 0.0.14:
 
 ```bash
 helm repo add colearendt https://colearendt.github.io/helm
-helm install my-release colearendt/traefik-forward-auth --version=0.0.10
+helm install my-release colearendt/traefik-forward-auth --version=0.0.14
 ```
 
 #### _Deploy traefik-forward-auth_
@@ -38,12 +38,17 @@ helm install my-release colearendt/traefik-forward-auth --version=0.0.10
 | livenessProbe | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| pod.env | object | `{}` |  |
+| pod.env | list | `[]` |  |
+| pod.volumeMounts | list | `[]` |  |
+| pod.volumes | list | `[]` |  |
 | podAnnotations | object | `{}` |  |
 | readinessProbe | object | `{}` |  |
 | replicas | int | `1` |  |
 | resources | object | `{}` |  |
 | service.port | int | `80` |  |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name of the service account to use. -- If not set and create is true, a name is generated using the fullname template |
 | serviceAnnotations | object | `{}` |  |
 | startupProbe | object | `{}` |  |
 | strategy | object | `{}` |  |

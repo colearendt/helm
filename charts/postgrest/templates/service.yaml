@@ -11,5 +11,11 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.service.adminPort }}
+    - port: {{ .Values.service.adminPort }}
+      targetPort: http-admin
+      protocol: TCP
+      name: http-admin
+    {{- end }}
   selector:
     {{- include "postgrest.selectorLabels" . | nindent 4 }}
