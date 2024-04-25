@@ -12,6 +12,14 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# Enable Helm chart test to check the postgrest service is up
+test:
+  enabled: true
+  image:
+    repository: busybox
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
 # -- Extra kubernetes objects to deploy (value evaluted as a template)
 extraObjects: []
 
