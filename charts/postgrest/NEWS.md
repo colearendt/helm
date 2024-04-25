@@ -1,3 +1,7 @@
+# 0.3.6
+
+- Fix env var `PGRST_DB_MAX_ROWS` (we had the wrong one set before)
+
 # 0.3.5
 
 - Make values `postgrest.dbUri` and `postgrest.jwtSecret` required
