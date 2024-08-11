@@ -1,3 +1,7 @@
+# 0.0.15
+
+- Add imagePullSecrets configuration
+
 # 0.0.14
 
 - Set serviceAccountName on deployment

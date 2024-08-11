@@ -22,6 +22,10 @@ spec:
         app: {{ .Release.Name }}
     spec:
       serviceAccountName: {{ include "traefik-forward-auth.serviceAccountName" . }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: proxy
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
