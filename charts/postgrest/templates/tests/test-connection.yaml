@@ -1,3 +1,4 @@
+{{- if .Values.test.enabled }}
 apiVersion: v1
 kind: Pod
 metadata:
@@ -9,7 +10,9 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: "{{ .Values.test.image.repository }}:{{ .Values.test.image.tag }}"
+      imagePullPolicy: {{ .Values.test.image.pullPolicy }}
       command: ['wget']
       args: ['{{ include "postgrest.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
+{{- end }}
