@@ -114,7 +114,7 @@ spec:
             {{- end }}
             {{- if .Values.postgrest.maxRows }}
             - name: PGRST_DB_MAX_ROWS
-              value: {{ .Values.postgrest.maxRows }}
+              value: !!str {{ .Values.postgrest.maxRows }}
             {{- end }}
             {{- if .Values.postgrest.preRequest }}
             - name: PGRST_PRE_REQUEST
