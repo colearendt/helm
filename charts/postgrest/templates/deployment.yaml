@@ -23,7 +23,7 @@ spec:
           {{- toYaml . | nindent 8 }}
         {{- end }}
       labels:
-        {{- include "postgrest.selectorLabels" . | nindent 8 }}
+        {{- include "postgrest.labels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
