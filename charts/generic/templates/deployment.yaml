@@ -20,7 +20,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "generic.selectorLabels" . | nindent 8 }}
+        {{- include "generic.labels" . | nindent 8 }}
         {{- with .Values.pod.labels }}
           {{- toYaml . | nindent 8}}
         {{- end }}
